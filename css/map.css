@@ -1,0 +1,24 @@
+#GSMap {
+    height: 20vh;
+    width: 40%;
+    border: 1px solid black;
+    box-shadow: 2px 2px 4px black;
+  }
+
+  .centerMap {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 2rem;
+  }
+
+  @media all and (max-width: 768px) {
+
+    .centerMap {
+        width: 100%;
+    }
+
+    #GSMap {
+      width: 100%;
+    }
+}
+  

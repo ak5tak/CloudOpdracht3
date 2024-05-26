@@ -1,0 +1,18 @@
+version: '3.8'
+services:
+  php-apache:
+    image: aziz321/my-php-apache-app:latest
+    ports: 
+      - "1051:80"
+    volumes:
+      - /var/www/html
+    depends_on:
+      - db
+  db:
+    container_name: mysql-container
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: backend
+    ports:
+      - "3309:3306"
