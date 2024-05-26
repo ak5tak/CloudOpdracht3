@@ -34,6 +34,50 @@
         </section>
     </header>
     <main>
+        <?php
+// Verbinding maken met de MySQL database
+$servername = "db";         // Naam van de service in docker-compose.yml
+$port = "3306";             // Poort van de MySQL database
+$username = "root";         // MySQL gebruikersnaam
+$password = "root";     // MySQL wachtwoord
+$dbname = "backend";        // Database naam
+
+// Verbinding maken met de database
+$conn = new mysqli($servername, $username, $password, $dbname, $port);
+
+// Controleer de verbinding
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+// Loggen naar de console
+echo "Verbinding met de database succesvol gemaakt!<br>";
+
+/// Tabel aanmaken als deze niet bestaat
+$createTableSql = "CREATE TABLE IF NOT EXISTS test (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    message VARCHAR(255) NOT NULL
+)";
+
+if ($conn->query($createTableSql) === TRUE) {
+    echo "Table 'test' successfully created or already exists.<br>";
+} else {
+    echo "Error creating table: " . $conn->error . "<br>";
+}
+
+// Voorbeeld invoegen van gegevens
+$sql = "INSERT INTO test (message) VALUES ('Hello from PHP script')";
+
+if ($conn->query($sql) === TRUE) {
+    echo "Data successfully inserted";
+} else {
+    echo "Error: " . $sql . "<br>" . $conn->error;
+}
+
+// Verbinding sluiten
+$conn->close();
+?>
+
         <h2 class="populaire_titel">populaire producten</h2>
         <section class="populaire">
             <article>

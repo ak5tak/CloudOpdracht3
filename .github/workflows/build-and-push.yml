@@ -23,5 +23,5 @@ jobs:
 
       - name: Build and push Docker image
         run: |
-          docker build -t username/repository:latest .
-          docker push username/repository:latest
+          docker build -t username/my-php-apache-app:latest .
+          docker push username/my-php-apache-app:latest
