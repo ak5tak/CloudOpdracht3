@@ -23,5 +23,5 @@ jobs:
 
       - name: Build and push Docker image
         run: |
-          docker build -t ${{ secrets.DOCKER_USERNAME }}/cloudcpdracht3:latest .
-          docker push ${{ secrets.DOCKER_USERNAME }}/cloudopdracht3:latest
+          docker build -t ${{ secrets.DOCKER_USERNAME }}/my-php-apache-app:latest .
+          docker push ${{ secrets.DOCKER_USERNAME }}/my-php-apache-app:latest
